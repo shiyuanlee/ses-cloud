@@ -36,9 +36,14 @@ jobs:
       run: terraform apply -auto-approve
       working-directory: ./prod/ap-southeast-1/storage/s3
     
-    - name: Output URL 
+    - name: Terraform output
+      run: terraform output -json > terraform-outputs.json
+      working-directory: ./prod/ap-southeast-1/storage/s3
+    
+    - name: Print Terraform Outputs
       run: |
-        echo "s3_bucket_arn: ${{ steps.apply.outputs.s3_bucket_arn }}"
+        cat terraform-outputs.json
+
         
       
 
