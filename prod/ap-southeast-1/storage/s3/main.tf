@@ -19,6 +19,6 @@ module "website_s3_bucket" {
 
 resource "null_resource" "remove_and_upload_to_s3" {
   provisioner "local-exec" {
-    command = "aws s3 cp ${path.module}/../../../../../../Downloads/SES-Cloud-Homework-main/ s3://${module.website_s3_bucket.s3_bucket_id} --recursive"
+    command = "aws s3 cp ${path.module}/../../../../src/ s3://${module.website_s3_bucket.s3_bucket_id} --recursive"
   }
 }
