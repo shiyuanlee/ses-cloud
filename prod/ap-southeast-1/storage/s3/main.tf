@@ -17,7 +17,7 @@ module "website_s3_bucket" {
 
 }
 
-resource "null_resource" "remove_and_upload_to_s3" {
+resource "null_resource" "upload_to_s3" {
   provisioner "local-exec" {
     command = "aws s3 cp ${path.module}/../../../../src/ s3://${module.website_s3_bucket.s3_bucket_id} --recursive"
   }
