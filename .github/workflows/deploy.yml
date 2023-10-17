@@ -30,8 +30,15 @@ jobs:
       working-directory: ./prod/ap-southeast-1/storage/s3
     
     - name: Terraform apply
+      id: apply
       run: terraform apply -auto-approve
       working-directory: ./prod/ap-southeast-1/storage/s3
+    
+    - name: Output URL 
+      run: |
+        echo "s3_bucket_arn: ${{ steps.apply.outputs.s3_bucket_arn }}"
+        
+      
 
   # test:
   #   runs-on: ubuntu-latest
