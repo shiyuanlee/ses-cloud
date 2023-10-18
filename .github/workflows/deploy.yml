@@ -25,19 +25,19 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      working-directory: ./prod/ap-southeast-1/storage/s3
+      working-directory: ./task1/prod/ap-southeast-1/storage/s3
     
     - name: Terraform plan
       run: terraform plan
-      working-directory: ./prod/ap-southeast-1/storage/s3
+      working-directory: ./task1/prod/ap-southeast-1/storage/s3
     
     - name: Terraform apply
       id: apply
       run: terraform apply -auto-approve
-      working-directory: ./prod/ap-southeast-1/storage/s3
+      working-directory: ./task1/prod/ap-southeast-1/storage/s3
     
     - name: Terraform output
       run: |
         terraform output -json > terraform-outputs.json
         cat terraform-outputs.json
-      working-directory: ./prod/ap-southeast-1/storage/s3
+      working-directory: ./task1/prod/ap-southeast-1/storage/s3
