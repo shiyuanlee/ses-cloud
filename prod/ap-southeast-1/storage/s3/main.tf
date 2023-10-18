@@ -3,7 +3,7 @@ module "website_s3_bucket" {
   version = "3.15.1"
 
   create_bucket = true
-  bucket        = "ses-prod-pub-0909098"
+  bucket        = "ses-prod-pub-bucket"
 
   block_public_acls       = var.block_public_acls
   block_public_policy     = var.block_public_policy
